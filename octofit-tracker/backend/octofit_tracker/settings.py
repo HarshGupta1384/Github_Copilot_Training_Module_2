@@ -80,6 +80,7 @@ WSGI_APPLICATION = 'octofit_tracker.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< build-octofit-app
 <<<<<<< HEAD
         'ENGINE': 'djongo',
         'NAME': 'octofit_db',
@@ -91,6 +92,10 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
 >>>>>>> 2515a60 (After rename)
+=======
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+>>>>>>> main
     }
 }
 
@@ -135,6 +140,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+<<<<<<< build-octofit-app
 <<<<<<< HEAD
 
 # CORS settings
@@ -144,3 +150,5 @@ CORS_ALLOW_HEADERS = ['*']
 CORS_ALLOW_METHODS = ['*']
 =======
 >>>>>>> 2515a60 (After rename)
+=======
+>>>>>>> main
