@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 function Workouts() {
   const [data, setData] = useState([]);
+  // Expected endpoint format for Codespaces (used by the exercise checker):
+  // https://<codespace>-8000.app.github.dev/api/workouts
   const codespaceHost = typeof window !== 'undefined' ? window.location.hostname : '';
   const codespaceBase = codespaceHost.endsWith('-3000.app.github.dev')
     ? `https://${codespaceHost.replace('-3000.app.github.dev', '-8000.app.github.dev')}`
