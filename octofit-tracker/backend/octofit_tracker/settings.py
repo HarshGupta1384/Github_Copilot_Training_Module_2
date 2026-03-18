@@ -20,33 +20,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-51)@(+sw(v2j*q*(+l$1qf130d+*x4pft5v-%ct8g@a-c$rc8_'
+SECRET_KEY = 'django-insecure-7gqo1^@$k6mc$*2($5k-9-)ym0vs80gk+n)gi6yj77$#_2$^%#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-import os
-CODESPACE_NAME = os.environ.get('CODESPACE_NAME', '')
-codespace_host = f"{CODESPACE_NAME}-8000.app.github.dev" if CODESPACE_NAME else ''
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-if codespace_host:
-    ALLOWED_HOSTS.append(codespace_host)
+ALLOWED_HOSTS = ['*']
 
-
-# Application definition
-
+# Enable CORS for development so the React app can talk to the API
 INSTALLED_APPS = [
+    'corsheaders',
+    'rest_framework',
+    'api',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'octofit_tracker.apps.OctofitTrackerConfig',
-    'tracker',
-    'rest_framework',
-    'djongo',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +50,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# For local dev, allow all origins; in production constrain this to the allowed frontend domains.
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'octofit_tracker.urls'
 
@@ -86,12 +80,17 @@ WSGI_APPLICATION = 'octofit_tracker.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
         'ENGINE': 'djongo',
         'NAME': 'octofit_db',
         'ENFORCE_SCHEMA': False,
         'CLIENT': {
             'host': 'mongodb://localhost:27017',
         }
+=======
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+>>>>>>> 2515a60 (After rename)
     }
 }
 
@@ -136,9 +135,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+<<<<<<< HEAD
 
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_HEADERS = ['*']
 CORS_ALLOW_METHODS = ['*']
+=======
+>>>>>>> 2515a60 (After rename)
